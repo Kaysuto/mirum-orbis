@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <!-- Meta Tags de base -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Téléchargez Mirum Orbis et commencez votre aventure dans le monde fantastique d'Ereda. MMORPG 2D gratuit avec des aventures épiques!"
+    />
+    <meta
+      name="keywords"
+      content="télécharger Mirum Orbis, MMORPG gratuit, jeu 2D, Ereda, jeu de rôle en ligne"
+    />
+    <meta name="author" content="Mirum Orbis" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mirum-orbis.com/download" />
+    <meta
+      property="og:title"
+      content="Télécharger Mirum Orbis - MMORPG 2D Gratuit"
+    />
+    <meta
+      property="og:description"
+      content="Téléchargez Mirum Orbis et commencez votre aventure dans le monde fantastique d'Ereda."
+    />
+    <meta
+      property="og:image"
+      content="https://mirum-orbis.com/images/LOGO_MIRIM_ORBIS.png"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://mirum-orbis.com/download" />
+    <meta
+      property="twitter:title"
+      content="Télécharger Mirum Orbis - MMORPG 2D Gratuit"
+    />
+    <meta
+      property="twitter:description"
+      content="Téléchargez Mirum Orbis et commencez votre aventure dans le monde fantastique d'Ereda."
+    />
+    <meta
+      property="twitter:image"
+      content="https://mirum-orbis.com/images/LOGO_MIRIM_ORBIS.png"
+    />
+
+    <!-- Titre de la page -->
+    <title>
+      Télécharger Mirum Orbis - MMORPG 2D | Monde fantastique d'Ereda
+    </title>
+
+    <!-- Scripts et styles externes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Configuration Tailwind personnalisée -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              pink: {
+                600: "#db2777",
+                700: "#be185d",
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Styles personnalisés -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,200;10..48,300;10..48,400;10..48,500;10..48,600;10..48,700;10..48,800&family=Berkshire+Swash&family=Uncial+Antiqua&family=Berry+Rotunda&display=swap");
+
+      /* Configuration de base du body */
+      body {
+        font-family: "Bricolage Grotesque", sans-serif;
+        scrollbar-width: thin;
+        scrollbar-color: #d69e2e #1a202c;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      /* Styles des scrollbars pour WebKit */
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #1a202c;
+        border-left: 1px solid #2d3748;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #d69e2e;
+        border-radius: 6px;
+        border: 2px solid #1a202c;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #b7791f;
+      }
+
+      /* Protection des images */
+      img {
+        pointer-events: none;
+      }
+
+      /* Polices personnalisées */
+      .font-medieval {
+        font-family: "Berkshire Swash", cursive;
+      }
+
+      .font-uncial {
+        font-family: "Uncial Antiqua", cursive;
+      }
+
+      /* Arrière-plan de la section héro */
+      .download-hero-bg {
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+          url("https://mirum-orbis.com/images/fond_etoile_mirum_smp_000.png")
+            no-repeat center center;
+        background-size: cover;
+      }
+
+      /* Séparateurs de sections */
+      .section-divider {
+        position: relative;
+        height: 100px;
+        background: linear-gradient(to bottom, #1a202c, transparent);
+        margin-bottom: 2rem;
+      }
+
+      .section-divider::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          #d69e2e,
+          transparent
+        );
+      }
+
+      /* Cartes de téléchargement avec effets hover */
+      .download-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .download-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(214, 158, 46, 0.3);
+      }
+
+      /* Arrière-plan parchemin */
+      .parchment-bg {
+        background: url("https://www.transparenttextures.com/patterns/old-paper.png"),
+          #f5e7c8;
+        background-blend-mode: multiply;
+      }
+
+      /* Menu mobile */
+      .mobile-menu {
+        display: none;
+        background-color: rgba(17, 24, 39, 0.98);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 60;
+        padding: 0.5rem 0;
+        border-top: 1px solid rgba(214, 158, 46, 0.2);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out, opacity 0.3s ease;
+        opacity: 0;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+
+      .mobile-menu.open {
+        display: block;
+        max-height: 100vh;
+        opacity: 1;
+      }
+
+      /* Animations */
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+
+      .animate-pulse {
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+
+      /* Boutons de téléchargement avec effet de brillance */
+      .download-button {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .download-button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .download-button:hover::before {
+        left: 100%;
+      }
+
+      /* Numéros d'étapes */
+      .step-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 3rem;
+        height: 3rem;
+        background-color: #d69e2e;
+        color: #1a202c;
+        border-radius: 50%;
+        font-weight: bold;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      /* Styles pour les détails/FAQ */
+      details summary {
+        cursor: pointer;
+        user-select: none;
+      }
+
+      details[open] summary {
+        color: #d69e2e;
+      }
+
+      /* Assurer que le contenu principal prend l'espace disponible */
+      .main-content {
+        flex: 1;
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-900 text-gray-100">
+    <!-- Navigation fixe -->
+    <nav class="bg-gray-800 fixed w-full z-50 shadow-lg">
+      <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <!-- Logo -->
+          <div class="flex items-center flex-shrink-0">
+            <a href="index.html">
+              <img
+                class="h-10 w-auto"
+                src="https://mirum-orbis.com/images/LOGO_MIRIM_ORBIS.png"
+                alt="Mirum Orbis Logo"
+                draggable="false"
+                oncontextmenu="return false;"
+              />
+            </a>
+          </div>
+
+          <!-- Menu desktop -->
+          <div class="hidden md:flex items-center">
+            <div class="ml-4 flex items-center space-x-1 lg:space-x-2">
+              <a
+                href="index.html"
+                class="text-gray-300 hover:text-yellow-400 px-2 py-2 rounded-md text-xs sm:text-sm font-medium transition duration-300 flex items-center whitespace-nowrap"
+              >
+                <i class="fas fa-home mr-1 sm:mr-2"></i>
+                <span class="hidden sm:inline">Accueil</span>
+              </a>
+              <a
+                href="index.html#monde"
+                class="text-gray-300 hover:text-yellow-400 px-2 py-2 rounded-md text-xs sm:text-sm font-medium transition duration-300 flex items-center whitespace-nowrap"
+              >
+                <i class="fas fa-globe-europe mr-1 sm:mr-2"></i>
+                <span class="hidden sm:inline">Le Monde</span>
+              </a>
+              <a
+                href="index.html#classes"
+                class="text-gray-300 hover:text-yellow-400 px-2 py-2 rounded-md text-xs sm:text-sm font-medium transition duration-300 flex items-center whitespace-nowrap"
+              >
+                <i class="fas fa-user-shield mr-1 sm:mr-2"></i>
+                <span class="hidden sm:inline">Classes</span>
+              </a>
+              <a
+                href="index.html#actualites"
+                class="text-gray-300 hover:text-yellow-400 px-2 py-2 rounded-md text-xs sm:text-sm font-medium transition duration-300 flex items-center whitespace-nowrap"
+              >
+                <i class="fas fa-newspaper mr-1 sm:mr-2"></i>
+                <span class="hidden sm:inline">Actualités</span>
+              </a>
+              <a
+                href="https://discord.gg/UaYmvsM2DB"
+                target="_blank"
+                class="text-gray-300 hover:text-yellow-400 px-2 py-2 rounded-md text-xs sm:text-sm font-medium transition duration-300 flex items-center whitespace-nowrap"
+              >
+                <i class="fab fa-discord mr-1 sm:mr-2"></i>
+                <span class="hidden sm:inline">Discord</span>
+              </a>
+            </div>
+            <div class="hidden md:flex items-center space-x-2 ml-4">
+              <a
+                href="https://patreon.com/AskilianStudio"
+                target="_blank"
+                class="bg-pink-600 hover:bg-pink-700 text-white px-2 sm:px-4 py-2 rounded-md text-xs sm:text-sm font-medium transition duration-300 whitespace-nowrap"
+              >
+                <i class="fab fa-patreon mr-1 sm:mr-2"></i>Supportez-nous
+              </a>
+            </div>
+          </div>
+
+          <!-- Bouton menu mobile -->
+          <div class="flex md:hidden ml-2">
+            <button
+              type="button"
+              class="mobile-menu-button bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none transition duration-150 ease-in-out"
+            >
+              <span class="sr-only">Open main menu</span>
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menu mobile -->
+      <div class="mobile-menu hidden md:hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a
+            href="index.html"
+            class="text-gray-300 hover:bg-gray-700 hover:text-yellow-400 block px-3 py-2 rounded-md text-base font-medium transition duration-300"
+          >
+            <i class="fas fa-home mr-2"></i> Accueil
+          </a>
+          <a
+            href="index.html#monde"
+            class="text-gray-300 hover:bg-gray-700 hover:text-yellow-400 block px-3 py-2 rounded-md text-base font-medium transition duration-300"
+          >
+            <i class="fas fa-globe-europe mr-2"></i> Le Monde
+          </a>
+          <a
+            href="index.html#classes"
+            class="text-gray-300 hover:bg-gray-700 hover:text-yellow-400 block px-3 py-2 rounded-md text-base font-medium transition duration-300"
+          >
+            <i class="fas fa-user-shield mr-2"></i> Classes
+          </a>
+          <a
+            href="index.html#actualites"
+            class="text-gray-300 hover:bg-gray-700 hover:text-yellow-400 block px-3 py-2 rounded-md text-base font-medium transition duration-300"
+          >
+            <i class="fas fa-newspaper mr-2"></i> Actualités
+          </a>
+          <a
+            href="https://discord.gg/UaYmvsM2DB"
+            target="_blank"
+            class="text-gray-300 hover:bg-gray-700 hover:text-yellow-400 block px-3 py-2 rounded-md text-base font-medium transition duration-300"
+          >
+            <i class="fab fa-discord mr-2"></i> Discord
+          </a>
+          <div class="pt-2 border-t border-gray-700">
+            <a
+              href="https://patreon.com/AskilianStudio"
+              target="_blank"
+              class="bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-md text-base font-medium transition duration-300 block text-center my-2"
+            >
+              <i class="fab fa-patreon mr-2"></i>Supportez-nous
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Contenu principal -->
+    <main class="main-content">
+      <!-- Section héro avec bouton de téléchargement principal -->
+      <header
+        class="download-hero-bg min-h-[60vh] flex items-center justify-center relative pt-16"
+      >
+        <div class="text-center px-4 sm:px-6 lg:px-8 z-10">
+          <h1
+            class="text-4xl md:text-6xl font-bold text-yellow-400 mb-6 font-medieval"
+          >
+            Téléchargez Mirum Orbis
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-8">
+            Votre portail vers le monde magique d'Ereda vous attend
+          </p>
+          <button
+            class="download-button bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-4 px-8 rounded-lg transition duration-300 transform hover:scale-105 text-lg"
+          >
+            <i class="fas fa-download mr-3"></i>Télécharger le jeu
+          </button>
+          <p class="text-gray-400 mt-4 text-sm">
+            Version 1.0.0 • Windows 10/11 • 2GB
+          </p>
+        </div>
+      </header>
+
+      <!-- Section d'avertissement antivirus -->
+      <section class="py-8 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            class="bg-yellow-900 bg-opacity-30 border-2 border-yellow-600 rounded-lg p-6"
+          >
+            <div class="flex items-start">
+              <div class="flex-shrink-0">
+                <i
+                  class="fas fa-exclamation-triangle text-yellow-400 text-2xl"
+                ></i>
+              </div>
+              <div class="ml-4">
+                <h3 class="text-lg font-bold text-yellow-400 mb-2">
+                  Information importante concernant les antivirus
+                </h3>
+                <p class="text-gray-300">
+                  Lors de l'installation, Windows Defender ou votre antivirus
+                  pourrait afficher une alerte de sécurité.
+                  <strong class="text-yellow-400"
+                    >Ceci est un faux positif</strong
+                  >
+                  - notre jeu est totalement sûr et ne contient aucun virus.
+                  Cette alerte apparaît car notre application n'est pas encore
+                  certifiée par Microsoft.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section des fonctionnalités -->
+      <section class="py-20 bg-gray-900 relative">
+        <div class="section-divider"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2
+              class="text-3xl md:text-5xl font-bold text-yellow-400 mb-4 font-uncial"
+            >
+              Pourquoi jouer à Mirum Orbis ?
+            </h2>
+            <div class="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="download-card bg-gray-800 p-8 rounded-lg shadow-lg">
+              <div class="text-yellow-400 text-4xl mb-4">
+                <i class="fas fa-globe"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-4">Un Monde Vivant</h3>
+              <p class="text-gray-300">
+                Explorez un univers fantastique en constante évolution avec des
+                événements saisonniers et des mises à jour régulières.
+              </p>
+            </div>
+
+            <div class="download-card bg-gray-800 p-8 rounded-lg shadow-lg">
+              <div class="text-yellow-400 text-4xl mb-4">
+                <i class="fas fa-users"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-4">Communauté Active</h3>
+              <p class="text-gray-300">
+                Rejoignez des milliers de joueurs, formez des guildes et
+                participez à des événements communautaires.
+              </p>
+            </div>
+
+            <div class="download-card bg-gray-800 p-8 rounded-lg shadow-lg">
+              <div class="text-yellow-400 text-4xl mb-4">
+                <i class="fas fa-gamepad"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-4">Gameplay Unique</h3>
+              <p class="text-gray-300">
+                Système de combat innovant, crafting élaboré et quêtes épiques
+                vous attendent dans Ereda.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Configuration requise -->
+      <section class="py-20 bg-gray-800 relative">
+        <div class="section-divider"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2
+              class="text-3xl md:text-5xl font-bold text-yellow-400 mb-4 font-uncial"
+            >
+              Configuration Requise
+            </h2>
+            <div class="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="parchment-bg p-8 rounded-lg shadow-lg text-gray-900">
+              <h3 class="text-2xl font-bold mb-6 font-uncial">
+                Configuration Minimale
+              </h3>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                  <div><strong>Système :</strong> Windows 10/11</div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                  <div><strong>Processeur :</strong> 2.0 GHz Dual Core</div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                  <div><strong>Mémoire :</strong> 4 GB RAM</div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                  <div><strong>Graphiques :</strong> DirectX 11 compatible</div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                  <div><strong>Stockage :</strong> 2 GB disponible</div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                  <div>
+                    <strong>Internet :</strong> Connexion stable requise
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="parchment-bg p-8 rounded-lg shadow-lg text-gray-900">
+              <h3 class="text-2xl font-bold mb-6 font-uncial">
+                Configuration Recommandée
+              </h3>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <i class="fas fa-star text-yellow-600 mt-1 mr-3"></i>
+                  <div><strong>Système :</strong> Windows 10/11</div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-star text-yellow-600 mt-1 mr-3"></i>
+                  <div><strong>Processeur :</strong> 3.0 GHz Quad Core</div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-star text-yellow-600 mt-1 mr-3"></i>
+                  <div><strong>Mémoire :</strong> 8 GB RAM</div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-star text-yellow-600 mt-1 mr-3"></i>
+                  <div><strong>Graphiques :</strong> DirectX 11 compatible</div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-star text-yellow-600 mt-1 mr-3"></i>
+                  <div><strong>Stockage :</strong> 4 GB disponible</div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-star text-yellow-600 mt-1 mr-3"></i>
+                  <div><strong>Internet :</strong> Connexion haut débit</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Guide d'installation -->
+      <section class="py-20 bg-gray-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2
+              class="text-3xl md:text-5xl font-bold text-yellow-400 mb-4 font-uncial"
+            >
+              Guide d'Installation
+            </h2>
+            <div class="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center">
+              <div class="step-number">1</div>
+              <h3 class="text-xl font-bold mb-4">Téléchargement</h3>
+              <p class="text-gray-300">
+                Cliquez sur le bouton de téléchargement ci-dessus pour obtenir
+                l'installateur de Mirum Orbis.
+              </p>
+            </div>
+
+            <div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center">
+              <div class="step-number">2</div>
+              <h3 class="text-xl font-bold mb-4">Alerte Windows</h3>
+              <p class="text-gray-300">
+                Si une alerte apparaît, cliquez sur "Informations
+                supplémentaires" puis sur "Exécuter quand même".
+              </p>
+            </div>
+
+            <div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center">
+              <div class="step-number">3</div>
+              <h3 class="text-xl font-bold mb-4">Installation</h3>
+              <p class="text-gray-300">
+                Suivez les étapes de l'installateur pour compléter
+                l'installation du jeu sur votre ordinateur.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Questions fréquentes -->
+      <section class="py-20 bg-gray-800 relative">
+        <div class="section-divider"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2
+              class="text-3xl md:text-5xl font-bold text-yellow-400 mb-4 font-uncial"
+            >
+              Questions Fréquentes
+            </h2>
+            <div class="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
+          </div>
+
+          <div class="max-w-3xl mx-auto space-y-4">
+            <details class="bg-gray-700 rounded-lg p-6">
+              <summary
+                class="font-bold text-lg cursor-pointer hover:text-yellow-400 transition"
+              >
+                Comment installer le jeu ?
+              </summary>
+              <p class="mt-4 text-gray-300">
+                Téléchargez l'installateur, exécutez-le et suivez les
+                instructions à l'écran. Le launcher s'occupera automatiquement
+                des mises à jour.
+              </p>
+            </details>
+
+            <details class="bg-gray-700 rounded-lg p-6">
+              <summary
+                class="font-bold text-lg cursor-pointer hover:text-yellow-400 transition"
+              >
+                Le jeu est-il vraiment gratuit ?
+              </summary>
+              <p class="mt-4 text-gray-300">
+                Oui, Mirum Orbis est 100% gratuit ! Des options cosmétiques sont
+                disponibles en boutique mais n'affectent pas le gameplay.
+              </p>
+            </details>
+
+            <details class="bg-gray-700 rounded-lg p-6">
+              <summary
+                class="font-bold text-lg cursor-pointer hover:text-yellow-400 transition"
+              >
+                Puis-je jouer avec mes amis ?
+              </summary>
+              <p class="mt-4 text-gray-300">
+                Absolument ! Mirum Orbis est conçu pour le jeu en groupe. Invitez vos amis et formez une guilde ensemble.
+              </p>
+            </details>
+
+            <details class="bg-gray-700 rounded-lg p-6">
+              <summary
+                class="font-bold text-lg cursor-pointer hover:text-yellow-400 transition"
+              >
+                Comment obtenir de l'aide en cas de problème ?
+              </summary>
+              <p class="mt-4 text-gray-300">
+                Rejoignez notre Discord officiel pour une assistance rapide ou consultez notre centre d'aide en ligne.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Section Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="https://mirum-orbis.com/images/LOGO_ASKILIAN_STUDIO.png" alt="Askilian Studio Logo" class="h-16 mb-4" draggable="false" oncontextmenu="return false;">
+                    <p class="text-sm">
+                        Mirum Orbis est un MMORPG 2D immersif créé par Askilian Studio, transportant les joueurs dans l'univers fantastique d'Ereda.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-yellow-400 mb-4">Navigation</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://mirum-orbis.com" class="hover:text-yellow-300 transition flex items-start">
+                            <svg class="w-5 h-5 mr-2 mt-0.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" clip-rule="evenodd"></path></svg>
+                            <span>Accueil</span>
+                        </a></li>
+                        <li><a href="https://mirum-orbis.com/download" class="hover:text-yellow-300 transition flex items-start">
+                            <svg class="w-5 h-5 mr-2 mt-0.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            <span>Télécharger</span>
+                        </a></li>
+                        <li><a href="#" class="hover:text-yellow-300 transition flex items-start">
+                            <svg class="w-5 h-5 mr-2 mt-0.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clip-rule="evenodd"></path><path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z"></path></svg>
+                            <span>Actualités</span>
+                        </a></li>
+                        <li><a href="https://status.mirum-orbis.com" class="hover:text-yellow-300 transition flex items-start">
+                            <svg class="w-5 h-5 mr-2 mt-0.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path></svg>
+                            <span>Statut des services</span>
+                        </a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-yellow-400 mb-4">Légal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-yellow-300 transition flex items-start">
+                            <svg class="w-5 h-5 mr-2 mt-0.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2H5a1 1 0 010-2h12V4H4zm3 2h2v2H7V6zm0 4h2v2H7v-2zm4-4h2v2h-2V6zm0 4h2v2h-2v-2z" clip-rule="evenodd"></path></svg>
+                            <span>Conditions d'utilisation</span>
+                        </a></li>
+                        <li><a href="#" class="hover:text-yellow-300 transition flex items-start">
+                            <svg class="w-5 h-5 mr-2 mt-0.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+                            <span>Politique de confidentialité</span>
+                        </a></li>
+                        <li><a href="#" class="hover:text-yellow-300 transition flex items-start">
+                            <svg class="w-5 h-5 mr-2 mt-0.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                            <span>Règles du jeu</span>
+                        </a></li>
+                        <li><a href="#" class="hover:text-yellow-300 transition flex items-start">
+                            <svg class="w-5 h-5 mr-2 mt-0.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                            <span>Mentions légales</span>
+                        </a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-yellow-400 mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-yellow-300 transition flex items-start">
+                            <i class="fas fa-question-circle mr-2 mt-1 text-yellow-400"></i>
+                            <span>FAQ</span>
+                        </a></li>
+                        <li><a href="#" class="hover:text-yellow-300 transition flex items-start">
+                            <i class="fas fa-envelope mr-2 mt-1 text-yellow-400"></i>
+                            <span>Contact</span>
+                        </a></li>
+                        <li><a href="#" class="hover:text-yellow-300 transition flex items-start">
+                            <i class="fas fa-bug mr-2 mt-1 text-yellow-400"></i>
+                            <span>Signaler un bug</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm mb-4 md:mb-0">
+                    &copy; 2025 Askilian Studio. Tous droits réservés.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="https://discord.gg/UaYmvsM2DB" target="_blank" class="text-gray-400 hover:text-yellow-400">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="https://patreon.com/AskilianStudio" target="_blank" class="text-gray-400 hover:text-yellow-400">
+                        <i class="fab fa-patreon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+  <p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=Kaysuto/mirum-orbis-download" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
