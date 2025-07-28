@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mirum Orbis est un MMORPG 2D immersif transportant les joueurs dans l'univers fantastique d'Ereda. Rejoignez la communauté et vivez des aventures épiques!">
+    <meta name="keywords" content="MMORPG, jeu 2D, Ereda, jeu de rôle, jeu en ligne, Mirum Orbis">
+    <meta name="author" content="Mirum Orbis">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mirum-orbis.com/">
+    <meta property="og:title" content="Mirum Orbis - MMORPG 2D | Monde fantastique d'Ereda">
+    <meta property="og:description" content="Mirum Orbis est un MMORPG 2D immersif transportant les joueurs dans l'univers fantastique d'Ereda.">
+    <meta property="og:image" content="https://mirum-orbis.com/images/LOGO_MIRIM_ORBIS.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mirum-orbis.com/">
+    <meta property="twitter:title" content="Mirum Orbis - MMORPG 2D | Monde fantastique d'Ereda">
+    <meta property="twitter:description" content="Mirum Orbis est un MMORPG 2D immersif transportant les joueurs dans l'univers fantastique d'Ereda.">
+    <meta property="twitter:image" content="https://mirum-orbis.com/images/LOGO_MIRIM_ORBIS.png">
+
+    <title>Mirum Orbis - MMORPG 2D | Monde fantastique d'Ereda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pink: {
+                            600: '#db2777',
+                            700: '#be185d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,200;10..48,300;10..48,400;10..48,500;10..48,600;10..48,700;10..48,800&family=Berkshire+Swash&family=Uncial+Antiqua&family=Berry+Rotunda&display=swap');
+        
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a202c;
+            border-left: 1px solid #2d3748;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d69e2e;
+            border-radius: 6px;
+            border: 2px solid #1a202c;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b7791f;
+        }
+        
+        body {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            scrollbar-width: thin;
+            scrollbar-color: #d69e2e #1a202c;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+        
+        img {
+            pointer-events: none;
+        }
+        
+        .font-medieval {
+            font-family: 'Berkshire Swash', cursive;
+        }
+        
+        .font-uncial {
+            font-family: 'Uncial Antiqua', cursive;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://mirum-orbis.com/images/fond_etoile_mirum_smp_000.png') no-repeat center center;
+            background-size: cover;
+        }
+        
+        .section-divider {
+            position: relative;
+            height: 100px;
+            background: linear-gradient(to bottom, #1a202c, transparent);
+            margin-bottom: 2rem;
+        }
+        
+        .section-divider::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #d69e2e, transparent);
+        }
+        
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(214, 158, 46, 0.3);
+        }
+        
+        .scroll-down {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .parchment-bg {
+            background: url('https://www.transparenttextures.com/patterns/old-paper.png'), #f5e7c8;
+            background-blend-mode: multiply;
+        }
+        
+        .mobile-menu {
+            display: none;
+            background-color: rgba(17, 24, 39, 0.98);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 60;
+            padding: 0.5rem 0;
+            border-top: 1px solid rgba(214, 158, 46, 0.2);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease;
+            opacity: 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .mobile-menu.open {
+            display: block;
+            max-height: 100vh;
+            opacity: 1;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating-img {
+            animation: float 6s ease-in-out infinite;
+            display: block;
+        }
+
+        .glow-button {
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(214, 158, 46, 0.7);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .glow-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                rgba(255, 215, 0, 0.3), 
+                rgba(255, 255, 255, 0.4), 
+                rgba(255, 215, 0, 0.3));
+            z-index: -1;
+            border-radius: 8px;
+        }
+
+        .glow-button:hover {
+            box-shadow: 0 0 25px rgba(214, 158, 46, 0.9);
+        }
+
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100">
+    <!-- Navigation -->
+    <nav class="bg-gray-800 fixed w-full z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center flex-shrink-0">
+                    <a href="#"><img class="h-10 w-auto" src="https://mirum-orbis.com/images/LOGO_MIRIM_ORBIS.png" alt="Mirum Orbis Logo" draggable="false" oncontextmenu="return false;"></a>
+                </div>
+                <div class="hidden md:flex items-center">
+                    <div class="ml-4 flex items-center space-x-1 lg:space-x-2">
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 px-2 py-2 rounded-md text-xs sm:text-sm font-medium transition duration-300 flex items-center whitespace-nowrap">
+                            <i class="fas fa-globe-europe mr-1 sm:mr-2"></i> <span class="hidden sm:inline">Le Monde</span>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 px-2 py-2 rounded-md text-xs sm:text-sm font-medium transition duration-300 flex items-center whitespace-nowrap">
+                            <i class="fas fa-user-shield mr-1 sm:mr-2"></i> <span class="hidden sm:inline">Classes</span>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 px-2 py-2 rounded-md text-xs sm:text-sm font-medium transition duration-300 flex items-center whitespace-nowrap">
+                            <i class="fas fa-newspaper mr-1 sm:mr-2"></i> <span class="hidden sm:inline">Actualités</span>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 px-2 py-2 rounded-md text-xs sm:text-sm font-medium transition duration-300 flex items-center whitespace-nowrap">
+                            <i class="fab fa-discord mr-1 sm:mr-2"></i> <span class="hidden sm:inline">Discord</span></a>
+                        <a href="https://patreon.com/AskilianStudio" target="_blank" class="text-gray-300 hover:text-yellow-400 px-2 py-2 rounded-md text-xs sm:text-sm font-medium transition duration-300 flex items-center whitespace-nowrap">
+                        </a>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-2">
+                        <a href="https://patreon.com/AskilianStudio" target="_blank" class="bg-pink-600 hover:bg-pink-700 text-white px-2 sm:px-4 py-2 rounded-md text-xs sm:text-sm font-medium transition duration-300 whitespace-nowrap">
+                            <i class="fab fa-patreon mr-1 sm:mr-2"></i>Supportez-nous
+                        </a>
+                        <button class="bg-yellow-600 hover:bg-yellow-700 text-white px-2 sm:px-4 py-2 rounded-md text-xs sm:text-sm font-medium transition duration-300 whitespace-nowrap">
+                            <i class="fas fa-download mr-1 sm:mr-2"></i>Télécharger
+                        </button>
+                    </div>
+                </div>
+                <div class="flex md:hidden ml-2">
+                    <button type="button" class="mobile-menu-button bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none transition duration-150 ease-in-out">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-yellow-400 block px-3 py-2 rounded-md text-base font-medium transition duration-300">
+                    <i class="fas fa-globe-europe mr-2"></i> Le Monde
+                </a>
+                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-yellow-400 block px-3 py-2 rounded-md text-base font-medium transition duration-300">
+                    <i class="fas fa-user-shield mr-2"></i> Classes
+                </a>
+                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-yellow-400 block px-3 py-2 rounded-md text-base font-medium transition duration-300">
+                    <i class="fas fa-users mr-2"></i> Guilde
+                </a>
+                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-yellow-400 block px-3 py-2 rounded-md text-base font-medium transition duration-300">
+                    <i class="fab fa-discord mr-2"></i> Discord
+                </a>
+                <div class="pt-2 border-t border-gray-700">
+                    <a href="https://patreon.com/AskilianStudio" target="_blank" class="bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-md text-base font-medium transition duration-300 block text-center my-2">
+                        <i class="fab fa-patreon mr-2"></i>Supportez-nous
+                    </a>
+                    <a href="#" class="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-md text-base font-medium transition duration-300 block text-center my-2">
+                        <i class="fas fa-download mr-2"></i>Télécharger
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg min-h-[120vh] flex items-center justify-center relative overflow-hidden">
+        <div class="text-center px-4 sm:px-6 lg:px-8 z-10">
+            <img src="https://mirum-orbis.com/images/LOGO_MIRIM_ORBIS.png" alt="Mirum Orbis Logo" class="mx-auto h-32 md:h-48 mb-8" draggable="false" oncontextmenu="return false;">
+            <p class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-8 mt-6">
+                Un MMORPG 2D immersif qui vous transporte dans l'univers fantastique d'Ereda
+            </p>
+            <div class="flex justify-center">
+                <button class="glow-button bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                    <i class="fas fa-play mr-2"></i>Jouer Maintenant
+                </button>
+            </div>
+        </div>
+        <div class="absolute bottom-16 left-0 right-0 text-center scroll-down">
+            <a href="#embark" class="inline-block bg-gray-900 bg-opacity-50 hover:bg-opacity-70 rounded-full p-4 transition-all duration-300 transform hover:scale-110">
+                <i class="fas fa-chevron-down text-yellow-400 text-3xl"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Embark Section -->
+    <section id="embark" class="py-20 bg-gray-800 relative">
+        <div class="section-divider"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-yellow-400 mb-4 font-uncial">
+                    Embarquez pour Ereda
+                </h2>
+                <div class="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Rejoignez une communauté de joueurs et façonnez votre propre histoire épique. Explorez un monde immersif, développez votre personnage et sa classe pour venir à bout de donjons palpitants.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card bg-gray-700 p-8 rounded-lg shadow-lg">
+                    <div class="text-yellow-400 text-4xl mb-4">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Les Pionniers d'Ereda</h3>
+                    <p class="text-gray-300">
+                        Rejoignez les premiers aventuriers et participez à la création de ce monde persistant en développement.
+                    </p>
+                </div>
+                
+                <div class="feature-card bg-gray-700 p-8 rounded-lg shadow-lg">
+                    <div class="text-yellow-400 text-4xl mb-4">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Personnalisation</h3>
+                    <p class="text-gray-300">
+                        Créez un héros unique avec des compétences spécialisées et un style distinctif.
+                    </p>
+                </div>
+                
+                <div class="feature-card bg-gray-700 p-8 rounded-lg shadow-lg">
+                    <div class="text-yellow-400 text-4xl mb-4">
+                        <i class="fas fa-dungeon"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Donjons Épiques</h3>
+                    <p class="text-gray-300">
+                        Affrontez des défis coopératifs avec vos amis et obtenez des récompenses légendaires.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deity Section -->
+    <section class="py-20 bg-gray-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <div class="rounded-lg shadow-xl border-4 border-yellow-600 overflow-hidden">
+                        <img src="https://mirum-orbis.com/images/Dieu_Everia_Officiel.png" alt="Divinité d'Ereda" class="w-full h-auto floating-img" draggable="false" oncontextmenu="return false;">
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-5xl font-bold text-yellow-400 mb-6" style="font-family: 'Berry Rotunda', cursive;">
+                        Les Divinités d'Ereda
+                    </h2>
+                    <p class="text-xl text-gray-300 mb-6">
+                        Les dieux anciens veillent sur Ereda, chacun avec ses propres desseins et mystères. Choisissez votre allégeance et gagnez leurs faveurs pour obtenir des pouvoirs divins.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <span class="text-yellow-400 mr-3"><i class="fas fa-star"></i></span>
+                            <span class="text-gray-300">Découvrez les secrets des anciennes divinités</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-yellow-400 mr-3"><i class="fas fa-star"></i></span>
+                            <span class="text-gray-300">Obtenez des bénédictions uniques</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-yellow-400 mr-3"><i class="fas fa-star"></i></span>
+                            <span class="text-gray-300">Participez à des événements divins</span>
+                        </li>
+                    </ul>
+                    <button class="bg-transparent hover:bg-gray-800 text-white font-bold py-3 px-6 border-2 border-yellow-500 rounded-lg transition duration-300">
+                        <i class="fas fa-scroll mr-2"></i>En savoir plus sur les dieux
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conquer Section -->
+    <section class="py-20 bg-gray-800 relative">
+        <div class="section-divider"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-yellow-400 mb-4 font-uncial">
+                    Conquérez Ereda
+                </h2>
+                <div class="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Explorez les vastes territoires d'Ereda et menez votre guilde vers la gloire à travers des batailles épiques.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="parchment-bg p-8 rounded-lg shadow-lg text-gray-900">
+                    <h3 class="text-2xl font-bold mb-4 font-uncial">Guerres de Territoire</h3>
+                    <p class="mb-4">
+                        Engagez-vous dans des batailles massives entre guildes pour le contrôle des terres les plus riches d'Ereda. Établissez votre domination et récoltez les bénéfices de votre victoire.
+                    </p>
+                    <div class="flex items-center mt-6">
+                        <div class="bg-yellow-600 text-white p-3 rounded-full mr-4">
+                            <i class="fas fa-chess-queen text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Stratégie et Tactique</h4>
+                            <p class="text-sm">Planifiez vos attaques avec soin pour surpasser vos ennemis</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="parchment-bg p-8 rounded-lg shadow-lg text-gray-900">
+                    <h3 class="text-2xl font-bold mb-4 font-uncial">Exploration Sans Limites</h3>
+                    <p class="mb-4">
+                        Découvrez des contrées sauvages, des ruines anciennes et des cités perdues. Chaque région d'Ereda offre ses propres défis et récompenses pour les aventuriers intrépides.
+                    </p>
+                    <div class="flex items-center mt-6">
+                        <div class="bg-yellow-600 text-white p-3 rounded-full mr-4">
+                            <i class="fas fa-map-marked-alt text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Monde Dynamique</h4>
+                            <p class="text-sm">Des événements aléatoires façonnent constamment le paysage</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="py-20 bg-gray-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row-reverse items-center gap-12">
+                <div class="md:w-1/2">
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-xl border-l-4 border-yellow-600">
+                        <h3 class="text-2xl font-bold text-yellow-400 mb-4 font-uncial">L'Histoire d'Ereda</h3>
+                        <p class="text-gray-300 italic mb-4">
+                            "En des temps anciens, les dieux façonnèrent Ereda de leurs mains divines. Mais leur conflit déchira le monde, laissant derrière un héritage de pouvoir et de chaos..."
+                        </p>
+                        <p class="text-gray-300">
+                            Plongez dans une histoire riche et passionnante, où chacun de vos choix façonnera le destin d'Ereda. Rencontrez des personnages mémorables, résolvez des énigmes anciennes et découvrez la vérité derrière les légendes.
+                        </p>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-5xl font-bold text-yellow-400 mb-6 font-uncial">
+                        Histoire Immersive
+                    </h2>
+                    <p class="text-xl text-gray-300 mb-6">
+                        Votre aventure dans Mirum Orbis est bien plus qu'une simple quête de puissance. Chaque décision que vous prenez influence le monde autour de vous, créant une expérience de jeu unique.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 text-yellow-400 mt-1">
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-gray-300">
+                                    "Jamais je n'ai vu un jeu où mes actions avaient un tel impact sur le monde. Sauver ce village a complètement changé ma progression!" - Aelthar, Guerrier de Lumière
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="py-12 bg-gray-800 relative">
+        <div class="section-divider"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-yellow-400 mb-4 font-uncial">
+                    Communauté
+                </h2>
+                <div class="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Rejoignez une communauté passionnée et participez à l'évolution constante du monde de Mirum Orbis.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-gray-700 p-6 rounded-lg shadow-lg text-center">
+                    <div class="text-yellow-400 text-5xl mb-4">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Premiers Explorateurs</h3>
+                    <p class="text-gray-300">
+                        Soyez parmi les premiers à découvrir et façonner les royaumes d'Ereda.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-700 p-6 rounded-lg shadow-lg text-center">
+                    <div class="text-yellow-400 text-5xl mb-4">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Événements Réguliers</h3>
+                    <p class="text-gray-300">
+                        Fêtes saisonnières, tournois et quêtes spéciales maintiennent le jeu toujours frais.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-700 p-6 rounded-lg shadow-lg text-center">
+                    <div class="text-yellow-400 text-5xl mb-4">
+                        <i class="fas fa-microphone-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Feedback Actif</h3>
+                    <p class="text-gray-300">
+                        Vos idées façonnent l'avenir du jeu grâce à notre système de suggestions.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <h3 class="text-2xl font-bold text-yellow-400 mb-6">Rejoignez-nous dès aujourd'hui</h3>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="https://discord.gg/UaYmvsM2DB" target="_blank" class="text-gray-300 hover:text-yellow-400 text-3xl">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="https://patreon.com/AskilianStudio" target="_blank" class="text-gray-300 hover:text-yellow-400 text-3xl">
+                        <i class="fab fa-patreon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="https://mirum-orbis.com/images/LOGO_ASKILIAN_STUDIO.png" alt="Askilian Studio Logo" class="h-16 mb-4" draggable="false" oncontextmenu="return false;">
+                    <p class="text-sm">
+                        Mirum Orbis est un MMORPG 2D immersif créé par Askilian Studio, transportant les joueurs dans l'univers fantastique d'Ereda.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold text-yellow-400 mb-4">Navigation</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://mirum-orbis.com" class="hover:text-yellow-300 transition flex items-start">
+                            <svg class="w-5 h-5 mr-2 mt-0.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" clip-rule="evenodd"></path></svg>
+                            <span>Accueil</span>
+                        </a></li>
+                        <li><a href="https://mirum-orbis.com/download" class="hover:text-yellow-300 transition flex items-start">
+                            <svg class="w-5 h-5 mr-2 mt-0.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            <span>Télécharger</span>
+                        </a></li>
+                        <li><a href="#" class="hover:text-yellow-300 transition flex items-start">
+                            <svg class="w-5 h-5 mr-2 mt-0.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clip-rule="evenodd"></path><path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z"></path></svg>
+                            <span>Actualités</span>
+                        </a></li>
+                        <li><a href="https://status.mirum-orbis.com" class="hover:text-yellow-300 transition flex items-start">
+                            <svg class="w-5 h-5 mr-2 mt-0.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path></svg>
+                            <span>Statut des services</span>
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold text-yellow-400 mb-4">Légal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-yellow-300 transition flex items-start">
+                            <svg class="w-5 h-5 mr-2 mt-0.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2H5a1 1 0 010-2h12V4H4zm3 2h2v2H7V6zm0 4h2v2H7v-2zm4-4h2v2h-2V6zm0 4h2v2h-2v-2z" clip-rule="evenodd"></path></svg>
+                            <span>Conditions d'utilisation</span>
+                        </a></li>
+                        <li><a href="#" class="hover:text-yellow-300 transition flex items-start">
+                            <svg class="w-5 h-5 mr-2 mt-0.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+                            <span>Politique de confidentialité</span>
+                        </a></li>
+                        <li><a href="#" class="hover:text-yellow-300 transition flex items-start">
+                            <svg class="w-5 h-5 mr-2 mt-0.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                            <span>Règles du jeu</span>
+                        </a></li>
+                        <li><a href="#" class="hover:text-yellow-300 transition flex items-start">
+                            <svg class="w-5 h-5 mr-2 mt-0.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                            <span>Mentions légales</span>
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold text-yellow-400 mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-yellow-300 transition flex items-start">
+                            <i class="fas fa-question-circle mr-2 mt-1 text-yellow-400"></i>
+                            <span>FAQ</span>
+                        </a></li>
+                        <li><a href="#" class="hover:text-yellow-300 transition flex items-start">
+                            <i class="fas fa-envelope mr-2 mt-1 text-yellow-400"></i>
+                            <span>Contact</span>
+                        </a></li>
+                        <li><a href="#" class="hover:text-yellow-300 transition flex items-start">
+                            <i class="fas fa-bug mr-2 mt-1 text-yellow-400"></i>
+                            <span>Signaler un bug</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm mb-4 md:mb-0">
+                    &copy; 2025 Askilian Studio. Tous droits réservés.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="https://discord.gg/UaYmvsM2DB" target="_blank" class="text-gray-400 hover:text-yellow-400">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="https://patreon.com/AskilianStudio" target="_blank" class="text-gray-400 hover:text-yellow-400">
+                        <i class="fab fa-patreon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Gestion du menu mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('open');
+                
+                // Changer l'icône selon l'état du menu
+                const icon = this.querySelector('i');
+                if (mobileMenu.classList.contains('open')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Fermer le menu en cliquant à l'extérieur
+            document.addEventListener('click', function(e) {
+                if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                    mobileMenu.classList.remove('open');
+                    mobileMenuButton.querySelector('i').classList.remove('fa-times');
+                    mobileMenuButton.querySelector('i').classList.add('fa-bars');
+                }
+            });
+        });
+        
+        // Défilement fluide pour les liens d'ancrage
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Fermer le menu mobile s'il est ouvert
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+    </script>
+</body>
+</html>
